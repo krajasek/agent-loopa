@@ -1,0 +1,48 @@
+# agent-loopa — review mode preset
+# Tuned for reviewing existing code: conservative coder temperatures,
+# heavier analysis weighting.
+
+output_dir = "./output"
+audit_enabled = true
+
+[gate]
+blocking_agents = ["security", "code_reviewer"]
+advisory_agents = ["algorithm_analyzer", "documentation"]
+early_exit_confidence = 0.85
+max_iterations = 2
+
+[agents.coder]
+model = "claude-sonnet-4-6"
+max_tokens = 4096
+temperature = 0.1
+enabled = true
+
+[agents.algorithm_analyzer]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.code_reviewer]
+model = "claude-sonnet-4-6"
+max_tokens = 3000
+temperature = 0.1
+enabled = true
+
+[agents.security]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.test_cases]
+model = "claude-sonnet-4-6"
+max_tokens = 4096
+temperature = 0.2
+enabled = true
+
+[agents.documentation]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true

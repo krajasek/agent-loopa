@@ -1,0 +1,48 @@
+# agent-loopa — default pipeline configuration
+# All 6 agents enabled with sensible defaults.
+# Override per-agent model strings with any litellm-compatible model ID.
+
+output_dir = "./output"
+audit_enabled = true
+
+[gate]
+blocking_agents = ["security", "code_reviewer"]
+advisory_agents = ["algorithm_analyzer", "documentation"]
+early_exit_confidence = 0.9
+max_iterations = 3
+
+[agents.coder]
+model = "claude-sonnet-4-6"
+max_tokens = 4096
+temperature = 0.2
+enabled = true
+
+[agents.algorithm_analyzer]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.code_reviewer]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.security]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.test_cases]
+model = "claude-sonnet-4-6"
+max_tokens = 4096
+temperature = 0.3
+enabled = true
+
+[agents.documentation]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.2
+enabled = true

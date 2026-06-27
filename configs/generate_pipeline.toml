@@ -1,0 +1,47 @@
+# agent-loopa — generate mode preset
+# Tuned for new code generation: more creative coder, strict reviewer.
+
+output_dir = "./output"
+audit_enabled = true
+
+[gate]
+blocking_agents = ["security", "code_reviewer"]
+advisory_agents = ["algorithm_analyzer", "documentation"]
+early_exit_confidence = 0.9
+max_iterations = 3
+
+[agents.coder]
+model = "claude-sonnet-4-6"
+max_tokens = 8192
+temperature = 0.3
+enabled = true
+
+[agents.algorithm_analyzer]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.code_reviewer]
+model = "claude-sonnet-4-6"
+max_tokens = 3000
+temperature = 0.1
+enabled = true
+
+[agents.security]
+model = "claude-sonnet-4-6"
+max_tokens = 2048
+temperature = 0.1
+enabled = true
+
+[agents.test_cases]
+model = "claude-sonnet-4-6"
+max_tokens = 6144
+temperature = 0.3
+enabled = true
+
+[agents.documentation]
+model = "claude-sonnet-4-6"
+max_tokens = 3000
+temperature = 0.2
+enabled = true
